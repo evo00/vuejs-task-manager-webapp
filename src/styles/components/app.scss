@@ -1,0 +1,171 @@
+@import '../app-vars.scss';
+
+// ----------------------------------
+// misc
+// ----------------------------------
+
+.hidden {
+    display: none;
+}
+
+// ----------------------------------
+// html
+// ----------------------------------
+
+html, app {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: block;
+}
+
+body {
+    background-color: $bg-color-dark;
+    color: #D8DCE3;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    user-select: none;
+}
+
+body,div,table,p,input,button {
+    font-family: 'Source Code Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+}
+
+// ----------------------------------
+// links
+// ----------------------------------
+
+a {
+    color: $link-color;
+    cursor: pointer;
+}
+a:hover {
+    color: $link-color-hover;
+}
+
+// ----------------------------------
+// forms
+// ----------------------------------
+
+button {
+    //background-color: $bg-color-dark;
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    color: $link-color;
+    padding: $small-v-pad $small-h-pad;
+    min-width: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+button:hover {
+    background-color: $link-color-hover;
+    color: $text-color-dark;
+}
+button:disabled {
+    /*background-color: rgba(60,61,64,0.4);*/
+    /*color: rgba(156,193,219,0.4);*/
+    background-color: transparent;
+    color: $text-color-dark;
+    cursor: default;
+}
+input[type="text"] {
+    background-color: $input-bg-color;
+    color: $input-text-color;
+    padding: $small-v-pad $small-h-pad;
+    border: none;
+}
+input[type="text"]:focus {
+    color: $input-text-color-focus;
+}
+
+// ----------------------------------
+// structure
+// ----------------------------------
+
+header {
+    padding: $big-v-pad $med-h-pad;
+}
+
+@media screen and (max-width: 640px) {
+    header {
+        padding: $big-v-pad $big-h-pad;
+    }
+}
+
+// ----------------------------------
+// container
+// ----------------------------------
+
+.loader-container {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.loader-container .label {
+    height: 50px;
+    font-size: 24px;
+    font-weight: normal;
+    color: #ccff99;
+}
+
+.loader-container .icon {
+    height: 50px;
+    font-size: 40px;
+    color: #000;
+}
+
+// ----------------------------------
+// app-container
+// ----------------------------------
+
+.app-container {
+    background-color: $bg-color-med;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 641px) {
+    .app-container {
+        box-shadow: 0px 0px 75px -6px rgba(0,0,0,0.39);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .app-container {
+        width: 100%;
+        padding: $big-v-pad $med-h-pad;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 740px) {
+    .app-container {
+        width: 600px;
+        margin: $big-h-pad auto;
+        padding: $big-v-pad $big-h-pad;
+    }
+}
+
+@media screen and (min-width: 741px) and (max-width: 1200px) {
+    .app-container {
+        width: 640px;
+        margin: $big-h-pad auto;
+        padding: $xbig-v-pad $xbig-h-pad;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .app-container {
+        width: 800px;
+        margin: $big-h-pad auto;
+        padding: $xbig-v-pad $xbig-h-pad;
+    }
+}

@@ -1,0 +1,30 @@
+@import '../../app-vars.scss';
+
+.task-list-item {
+
+    display: block;
+    padding: $small-v-pad $small-h-pad;
+    overflow: auto;
+    border-bottom: 1px solid $bdr-color-dark;
+
+    &.completed span {
+        text-decoration: line-through;
+        color: $text-color-med;
+    }
+
+    &.selected {
+        background-color: $bg-color-dark;
+    }
+    &.selected button:disabled {
+        color: $text-color-med;
+    }
+
+    span {
+        float: left;
+        padding: $small-v-pad 0;
+    }
+
+    .controls {
+        float: right;
+    }
+}
