@@ -14,7 +14,7 @@
     import Vue from 'vue'
 
     // models
-    import { StatusFilterType, StatusFilter } from 'src/data/models/basic/status-filter.model'
+    import { STATUS_FILTER_TYPE, StatusFilter } from 'src/data/models/basic/status-filter.model'
 
     // utils
     import * as Utils from 'src/logic/tasks/task-list/status-filter/status-filter.utils'
@@ -27,9 +27,9 @@
         data: function () {
             return {
                 filters: [
-                    new StatusFilter({ label: 'All',          type: StatusFilterType.ALL }),
-                    new StatusFilter({ label: 'Incomplete',   type: StatusFilterType.INCOMPLETE }),
-                    new StatusFilter({ label: 'Complete',     type: StatusFilterType.COMPLETE })
+                    new StatusFilter({ label: 'All',          type: STATUS_FILTER_TYPE.ALL }),
+                    new StatusFilter({ label: 'Incomplete',   type: STATUS_FILTER_TYPE.INCOMPLETE }),
+                    new StatusFilter({ label: 'Complete',     type: STATUS_FILTER_TYPE.COMPLETE })
                 ]
             }
         },

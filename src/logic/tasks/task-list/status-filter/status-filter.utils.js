@@ -1,5 +1,5 @@
 // models
-import { StatusFilterType } from 'src/data/models/basic/status-filter.model'
+import { STATUS_FILTER_TYPE } from 'src/data/models/basic/status-filter.model'
 import { Task, TASK_STATUS } from 'src/data/models/crud/task.model'
 
 // ---------------------------
@@ -9,10 +9,10 @@ import { Task, TASK_STATUS } from 'src/data/models/crud/task.model'
 export function filterTasks (tasks, type) {
     return tasks.filter((task) => {
         return (
-            (type === StatusFilterType.ALL) ||
-            (type === StatusFilterType.INCOMPLETE && task.status === TASK_STATUS.INCOMPLETE) ||
-            (type === StatusFilterType.COMPLETE && task.status === TASK_STATUS.COMPLETE) ||
-            (type === StatusFilterType.TRASH && task.status === TASK_STATUS.TRASH)
+            (type === STATUS_FILTER_TYPE.ALL) ||
+            (type === STATUS_FILTER_TYPE.INCOMPLETE && task.status === TASK_STATUS.INCOMPLETE) ||
+            (type === STATUS_FILTER_TYPE.COMPLETE && task.status === TASK_STATUS.COMPLETE) ||
+            (type === STATUS_FILTER_TYPE.TRASH && task.status === TASK_STATUS.TRASH)
         )
     })
 }

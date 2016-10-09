@@ -4,7 +4,7 @@ import deepFreeze from 'deep-freeze'
 import { TASK_STATUS } from 'src/data/models/crud/task.model'
 
 // models
-import { StatusFilterType } from 'src/data/models/basic/status-filter.model'
+import { STATUS_FILTER_TYPE } from 'src/data/models/basic/status-filter.model'
 import { Task } from 'src/data/models/crud/task.model'
 
 // SUT
@@ -24,7 +24,7 @@ describe('complete filter utils', () => {
 
             deepFreeze(_tasks)
 
-            const _result = Utils.filterTasks(_tasks, StatusFilterType.COMPLETE)
+            const _result = Utils.filterTasks(_tasks, STATUS_FILTER_TYPE.COMPLETE)
             const _filtered_task_ids = _result.map((task) => task.server_id)
 
             expect(_filtered_task_ids).to.include(111)

@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze'
 
 // models
-import { StatusFilterType } from 'src/data/models/basic/status-filter.model'
+import { STATUS_FILTER_TYPE } from 'src/data/models/basic/status-filter.model'
 
 // local: constants
 import { ACTION_SET_COMPLETE_FILTER } from '../../tasks.settings'
@@ -25,11 +25,11 @@ describe('complete filter reducer', () => {
 
     it('should set complete filter', () => {
 
-        const _state_before = StatusFilterType.ALL
-        const _expected = StatusFilterType.COMPLETE
+        const _state_before = STATUS_FILTER_TYPE.ALL
+        const _expected = STATUS_FILTER_TYPE.COMPLETE
         const _action = {
             type: ACTION_SET_COMPLETE_FILTER,
-            value: StatusFilterType.COMPLETE
+            value: STATUS_FILTER_TYPE.COMPLETE
         }
 
         deepFreeze(_action)

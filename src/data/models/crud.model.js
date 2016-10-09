@@ -1,18 +1,11 @@
-// local: settings
-import {
-    DATA_SOURCE_LOCAL,
-    DATA_SOURCE_REST_API
-} from '../constants/data.constants'
+// local: config
 import * as Config from '../config/data.config'
 
 // class: settings
 export const UNIQUE_ID_SERVER_KEY = 's'
 export const UNIQUE_ID_LOCAL_KEY = 'l'
 
-export const RESPONSE_ERROR_MESSAGE_INVALID_DATA_SOURCE = 'data_source must match either DATA_SOURCE_LOCAL or DATA_SOURCE_SERVER in src/data/settings/app.settings'
-export const RESPONSE_ERROR_MESSAGE_NO_DATA_SOURCE = 'data_source must be set before calling CRUD methods'
-export const RESPONSE_ERROR_MESSAGE_NO_LOCAL_STORAGE_SERVICE = 'localStorageService must be set before calling CRUD methods with data_source set to local'
-export const RESPONSE_ERROR_MESSAGE_NO_REST_API_SERVICE = 'restApiService must be set before calling CRUD methods with data_source set to REST API'
+export const RESPONSE_ERROR_MESSAGE_NO_DATA_SERVICE = 'dataService must be set before calling CRUD model methods'
 
 export class CRUDModel {
 
@@ -64,7 +57,7 @@ export class CRUDModel {
     }
 
     // -----------------------------
-    // CRUD
+    // static methods
     // -----------------------------
 
     static index (config = {}) {
@@ -87,41 +80,19 @@ export class CRUDModel {
         return this.request('delete', Object.assign({}, { id, config }))
     }
 
-    // -----------------------------
-    // request
-    // -----------------------------
-
     static request (action, options = {}) {
         return new Promise((resolve, reject) => {
 
-            if (typeof Config.data_source === 'undefined') {
-                return reject(RESPONSE_ERROR_MESSAGE_NO_DATA_SOURCE)
+            if (typeof Config.dataService === 'undefined') {
+                return reject(RESPONSE_ERROR_MESSAGE_NO_DATA_SERVICE)
             }
+
+            // TODO: validate action
 
             let _resource_endpoint = this.name_plural
 
-            switch (Config.data_source) {
-                case DATA_SOURCE_LOCAL:
-
-                    if (typeof Config.localStorageService === 'undefined') {
-                        return reject(RESPONSE_ERROR_MESSAGE_NO_LOCAL_STORAGE_SERVICE)
-                    }
-
-                    return Config.localStorageService[ action ](_resource_endpoint, options)
-                        .then(response => resolve(response), reject)
-
-                case DATA_SOURCE_REST_API:
-
-                    if (typeof Config.restApiService === 'undefined') {
-                        return reject(RESPONSE_ERROR_MESSAGE_NO_REST_API_SERVICE)
-                    }
-
-                    return Config.restApiService[ action ](_resource_endpoint, options)
-                        .then(response => resolve(response), reject)
-
-                default:
-                    return reject(RESPONSE_ERROR_MESSAGE_INVALID_DATA_SOURCE)
-            }
+            return Config.dataService[ action ](_resource_endpoint, options)
+                .then(response => resolve(response), reject)
         })
     }
 }

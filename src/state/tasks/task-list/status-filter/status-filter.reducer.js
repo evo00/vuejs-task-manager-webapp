@@ -1,5 +1,5 @@
 // models
-import { StatusFilterType } from 'src/data/models/basic/status-filter.model'
+import { STATUS_FILTER_TYPE } from 'src/data/models/basic/status-filter.model'
 
 // local: constants
 import {

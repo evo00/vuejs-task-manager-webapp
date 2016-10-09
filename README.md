@@ -18,6 +18,7 @@ npm run build
 
 ## run unit tests
 npm run unit
+npm run tdd
 
 ## run e2e tests
 npm run e2e

@@ -1,14 +1,9 @@
 // services
-import * as RestApiService from 'src/data/services/rest-api.service'
+import * as DataService from 'src/data/services/rest-api.service'
+// import * as DataTransformer from 'src/data/utils/json-api-response.transformer'
 
-// local: constants
-import {
-    DATA_SOURCE_LOCAL,
-    DATA_SOURCE_REST_API
-} from '../constants/data.constants'
-
-export let data_source = DATA_SOURCE_REST_API
-export let restApiService = RestApiService
+export let dataService = DataService
+// export let dataServiceResponseTransform = DataTransformer
 
 export function nameSingularTransform (class_name) {
     return class_name.toLowerCase()

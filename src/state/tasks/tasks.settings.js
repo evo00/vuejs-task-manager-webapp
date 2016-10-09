@@ -1,5 +1,5 @@
 // models
-import { StatusFilterType } from 'src/data/models/basic/status-filter.model'
+import { STATUS_FILTER_TYPE } from 'src/data/models/basic/status-filter.model'
 
 // --------------------------
 // actions
@@ -36,5 +36,5 @@ export const ACTION_SET_COMPLETE_FILTER = 'SET_COMPLETE_FILTER'
 
 export const DEFAULT_EDITING_TASK_STATE = null
 export const DEFAULT_TASK_LIST_STATE = []
-export const DEFAULT_COMPLETE_FILTER_STATE = StatusFilterType.ALL
+export const DEFAULT_COMPLETE_FILTER_STATE = STATUS_FILTER_TYPE.ALL
 export const DEFAULT_TEXT_FILTER_STATE = ''

@@ -6,8 +6,12 @@ export const TASK_STATUS = {
     TRASH:          3 // 'task-status-trash'
 }
 
-export class Task extends CRUDModel {
+export const defaults = {
+    text: '',
+    status: TASK_STATUS.INCOMPLETE
+}
 
+export class Task extends CRUDModel {
     // -----------------------------
     // constructor
     // -----------------------------
